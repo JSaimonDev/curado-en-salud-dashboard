@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&family=Open+Sans&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1, h2, h3, h4 {
+  @apply font-josefineSans font-bold
+}
+
+.customContainer {
+  @apply w-[900px]
+}
+
+input {
+  @apply border rounded-lg border-greyLight1 border-opacity-30
+}
+
+/* Quill */
+.ql-editor {
+  min-height: 250px;;
+  overflow: auto;
+}
