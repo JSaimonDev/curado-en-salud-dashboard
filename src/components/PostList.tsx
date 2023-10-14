@@ -25,6 +25,7 @@ const PostList = () => {
             const data = await getPostList(PAGE_SIZE, page) as { postList?: FetchedPost[], numberOfPages?: number }
             if (data.postList && Array.isArray(data.postList)) setPostList(data.postList)
             if (data.numberOfPages != undefined && typeof numberOfPages === 'number') setNumberOfPages(data.numberOfPages)
+            console.log(data)
         }
         gettingData()
     }, [page, numberOfPages])
@@ -42,7 +43,7 @@ const PostList = () => {
                             <PostListElement content={post.category.name} className='' />
                         </div>
                         <div className="basis-1/4">
-                            <PostListElement content='Subcategoria' className='' />
+                            <PostListElement content={post.subcategory.name} className='' />
                         </div>
                         <div className="basis-1/4 flex justify-center items-center  ml-4 gap-2">
                             <Link to={`/post/${post.id}`} className="h-full w-full">

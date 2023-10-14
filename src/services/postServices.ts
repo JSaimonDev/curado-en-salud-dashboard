@@ -1,5 +1,4 @@
 import config from "../config"
-import { fetchWithApiKey } from "./utils"
 
 export const createPost = (post: FormData) => { // change name to createOrUpdatePost
     fetch(config.API_URL + 'api/post', {
@@ -29,7 +28,7 @@ export const getPostList = (pageSize: number,
 
 export const getPost = (id: number) => {
     const getPostUrl = `${config.API_URL}api/post/${id}`
-    const post = fetchWithApiKey(getPostUrl)
+    const post = fetch(getPostUrl)
         .then(response => response.json())
         .then(data => {
             return data
@@ -39,7 +38,7 @@ export const getPost = (id: number) => {
 
 export const deletePost = (id: number) => {
     const deletePostUrl = `${config.API_URL}api/post/delete/${id}`
-    const postIsDeleted = fetchWithApiKey(deletePostUrl, {
+    const postIsDeleted = fetch(deletePostUrl, {
         method: 'DELETE'
     })
     .then(response => response.json())

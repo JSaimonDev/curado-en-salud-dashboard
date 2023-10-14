@@ -1,0 +1,1 @@
+- Rerenderizar tras borrar un post
