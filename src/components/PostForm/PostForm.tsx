@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import TextEditor from "./TextEditor";
-import { getPost, createPost } from "../../services/postServices";
+import { getPost, createPost, updatePost } from "../../services/postServices";
 
 interface PostFormProps {
     id?: number
@@ -26,7 +26,10 @@ const PostForm = ({ id }: PostFormProps) => {
                 if (fetchedPost) {
                     setTitle(fetchedPost.title || '')
                     setCategory(fetchedPost.category.name || '')
-                    setSubcategory(fetchedPost.subCategory || '')
+                    setSubcategory(fetchedPost.subcategory.name || '')
+                    setDescription(fetchedPost.description || '')
+                    setAltContent(fetchedPost.altContent || '')
+                    setAltFeatured(fetchedPost.altFeaturedImage || '')
                     setTags(fetchedPost.tags || '')
                     setDefaultContent(fetchedPost.content)
                 }
@@ -51,7 +54,13 @@ const PostForm = ({ id }: PostFormProps) => {
         contentRef && formData.append('content', contentRef.current)
         featuredImageRef.current && featuredImageRef.current.files && formData.append('featuredImage', featuredImageRef.current.files[0])
 
-        createPost(formData)
+
+        if (id) {
+            updatePost(formData, id)
+        } else {
+            createPost(formData)
+        }
+
     }
 
     return (
@@ -74,7 +83,7 @@ const PostForm = ({ id }: PostFormProps) => {
             </div>
             <div className="flex gap-4 w-full">
                 <label>Description</label>
-                <textarea className="w-full" onChange={(e) => setDescription(e.target.value)} />
+                <textarea className="w-full" onChange={(e) => setDescription(e.target.value)} value={description} />
             </div>
             <div className="flex gap-8">
                 <div className="basis-1/2 flex justify-between">
@@ -90,11 +99,11 @@ const PostForm = ({ id }: PostFormProps) => {
             </div>
             <div className="flex gap-4 w-full">
                 <label >Alt tag for featured image</label>
-                <input className="w-full" onChange={(e) => setAltFeatured(e.target.value)} />
+                <input className="w-full" onChange={(e) => setAltFeatured(e.target.value)} value={altFeatured} />
             </div>
             <div className="flex gap-4 w-full">
                 <label>Alt tags for content images</label>
-                <textarea className="w-full" onChange={(e) => setAltContent(e.target.value)} />
+                <textarea className="w-full" onChange={(e) => setAltContent(e.target.value)} value={altContent} />
             </div>
             <div>
                 <TextEditor defaultContent={defaultContent} contentRef={contentRef} />

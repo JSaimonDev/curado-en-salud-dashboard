@@ -13,6 +13,19 @@ export const createPost = (post: FormData) => { // change name to createOrUpdate
     })
 }
 
+export const updatePost = (post: FormData, id: number) => {
+        fetch(`${config.API_URL}api/post/${id}`, {
+        method: 'PUT',
+        body: post
+    })
+        .then(response => {
+        if (response.ok) console.log('Post successfully updated') 
+        })
+        .catch(response => {
+        throw new Error(response.message)
+    })
+}
+
 export const getPostList = (pageSize: number,
     page: number
 ) => {

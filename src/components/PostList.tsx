@@ -25,7 +25,6 @@ const PostList = () => {
             const data = await getPostList(PAGE_SIZE, page) as { postList?: FetchedPost[], numberOfPages?: number }
             if (data.postList && Array.isArray(data.postList)) setPostList(data.postList)
             if (data.numberOfPages != undefined && typeof numberOfPages === 'number') setNumberOfPages(data.numberOfPages)
-            console.log(data)
         }
         gettingData()
     }, [page, numberOfPages])
