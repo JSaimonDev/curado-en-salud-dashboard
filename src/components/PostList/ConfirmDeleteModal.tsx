@@ -1,10 +1,13 @@
 import { deletePost } from "../../services/postServices";
 
-const ConfirmDeleteModal = ({ setShowModal, showModal, id }: { setShowModal: React.Dispatch<React.SetStateAction<boolean>>, showModal: boolean, id: number | undefined }) => {
-    const handleDelete = () => {
+const ConfirmDeleteModal = ({ setShowModal, showModal, id, onDelete }:
+    { setShowModal: React.Dispatch<React.SetStateAction<boolean>>, showModal: boolean, id: number | undefined, onDelete: () => void }) => {
+    const handleDelete = async () => {
         setShowModal(false)
         if (id) {
-            deletePost(id)
+            const deletedPost = await deletePost(id)
+            console.log(deletedPost)
+            onDelete()
         }
     }
     return (

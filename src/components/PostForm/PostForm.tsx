@@ -8,8 +8,8 @@ interface PostFormProps {
 
 
 const PostForm = ({ id }: PostFormProps) => {
-    const [altContent, setAltContent] = useState<string>()
-    const [altFeatured, setAltFeatured] = useState<string>()
+    const [altContent, setAltContent] = useState<string>('')
+    const [altFeatured, setAltFeatured] = useState<string>('')
     const [title, setTitle] = useState<string>('')
     const [category, setCategory] = useState<string>('')
     const [subcategory, setSubcategory] = useState<string>('')

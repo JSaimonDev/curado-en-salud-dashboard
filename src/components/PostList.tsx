@@ -14,10 +14,16 @@ const PostList = () => {
     const [numberOfPages, setNumberOfPages] = useState(1)
     const [showModal, setShowModal] = useState(false)
     const [deleteId, setDeleteId] = useState<number>()
+    const [refreshKey, setRefreshKey] = useState(0)
+
 
     const handleClickX = (id: number) => {
         setDeleteId(id)
         setShowModal(true)
+    }
+
+    const onDelete = () => {
+        setRefreshKey(refreshKey + 1)
     }
 
     useEffect(() => {
@@ -27,11 +33,11 @@ const PostList = () => {
             if (data.numberOfPages != undefined && typeof numberOfPages === 'number') setNumberOfPages(data.numberOfPages)
         }
         gettingData()
-    }, [page, numberOfPages])
+    }, [page, numberOfPages, refreshKey])
 
     return (
         <section className="flex flex-col justify-center w-full gap-4">
-            <ConfirmDeleteModal setShowModal={setShowModal} showModal={showModal} id={deleteId} />
+            <ConfirmDeleteModal setShowModal={setShowModal} showModal={showModal} id={deleteId} onDelete={onDelete} />
             {postList && postList.map((post: FetchedPost) => {
                 return (
                     <div className="flex w-full gap-2" key={post.id}>
