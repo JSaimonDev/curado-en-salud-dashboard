@@ -1,5 +1,7 @@
 # Curado en salud
 
+[curadoensalud.com](https://curadoensalud.com)
+
 Curado en salud is a blog about nutrition, fitness and health. It is the first project made entirely by myself from scratch, and its main purpose is to put in practice all the concepts and technologies that I have learnt during the past months.
 
 ![Dashboard screenshot](/src/assets/dashboard-screenshot.png)
