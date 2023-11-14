@@ -1,10 +1,10 @@
 # Curado en salud
 
-Curado en salud is a blog about nutrition, fitness and health. It is the first project made entirely by myself from scratch, and it’s main purpose is to put in practice all the concepts and technologies that I have learnt during the previous months.
+Curado en salud is a blog about nutrition, fitness and health. It is the first project made entirely by myself from scratch, and its main purpose is to put in practice all the concepts and technologies that I have learnt during the past months.
 
 ![Dashboard screenshot](/src/assets/dashboard-screenshot.png)
 
-I decided to not use any react high-end frameworks to practice the basics and do it as modular as possible. The technologies I used are:
+I decided to not use any react framework to practice the basics and do it as modular as possible. The technologies I used are:
 
 - Typescript
 - Front-end: React
