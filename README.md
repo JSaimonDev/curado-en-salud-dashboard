@@ -1,27 +1,22 @@
-# React + TypeScript + Vite
+# Curado en salud
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Curado en salud is a blog about nutrition, fitness and health. It is the first project made entirely by myself from scratch, and it’s main purpose is to put in practice all the concepts and technologies that I have learnt during the previous months.
 
-Currently, two official plugins are available:
+![Dashboard screenshot](/src/assets/dashboard-screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I decided to not use any react high-end frameworks to practice the basics and do it as modular as possible. The technologies I used are:
 
-## Expanding the ESLint configuration
+- Typescript
+- Front-end: React
+- API: Express
+- ORM: Prisma
+- DB: Postgres
+- Cloud Storage: AWS S3
+- Style: Tailwind
+- Hosting: Fly.io
+- Web text editor: Quill
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Apart from the APP and API modules, I also decided to create a dashboard to manage and edit the post and possible future features.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [Link to APP repository](https://github.com/JSaimonDev/curado-en-salud-app)
+- [Link to API repository](https://github.com/JSaimonDev/curado-en-salud-api)
